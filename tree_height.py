@@ -54,5 +54,5 @@ def main():
     print(height)
     if __name__ == '__main__':
         main()
-        print()
+    #EOF
 # print(numpy.array([1,2,3]))
