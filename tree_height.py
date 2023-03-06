@@ -1,16 +1,20 @@
 # python3
-
+"""
+# python3
+Lasma Ketija Bogdane 221RDB404
+"""
 import sys
 import threading
-def compute_height(n, parents):
+from typing import List
+def compute_height(_n, parents: List[int]) -> int:
     """
     return
     """
     max_height = 0
-    if n == 0:
+    if _n == 0:
         return max_height
-    heights = [0] * n
-    for i in range(n):
+    heights = [0] * _n
+    for i in range(_n):
         parent = parents[i]
         if parent == -1:
             heights[i] = 1
@@ -27,26 +31,28 @@ def main():
     file = input("Enter the input filename: ")
     if file.startswith("i"):
         path = "./test/" + file
-    elif file.startswith("F"):
+    elif file.startswith("f"):
         path = "./test/Folder/" + file
     else:
         print("Invalid file type")
         return
-    with open(path, "r", encoding="utf-8") as f:
-        n = int(f.readline())
-        parents = list(map(int, f.readline().split()))
+    with open(path, "r", encoding="utf-8") as _f:
+        _n = int(_f.readline())
+        parents = list(map(int, _f.readline().split()))
 
     sys.setrecursionlimit(10**7)
     threading.stack_size(2**27)
-    t = threading.Thread(target=compute_height, args=(n, parents))
-    t.start()
-    t.join()
-    
-    with open(path, "r", encoding="utf-8") as f:
-        n = int(f.readline())
-        parents = list(map(int, f.readline().split()))
+    _t=threading.Thread(target=compute_height, args=(_n, parents))
+    _t.start()
+    _t.join()
 
-    height = compute_height(n, parents)
+    with open(path, "r", encoding="utf-8") as _f:
+        _n = int(_f.readline())
+        parents = list(map(int, _f.readline().split()))
+
+    height = compute_height(_n, parents)
     print(height)
     if __name__ == '__main__':
         main()
+        print()
+# print(numpy.array([1,2,3]))
