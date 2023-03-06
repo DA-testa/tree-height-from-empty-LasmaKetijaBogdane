@@ -6,15 +6,16 @@ Lasma Ketija Bogdane 221RDB404
 import sys
 import threading
 from typing import List
-def compute_height(_n, parents: List[int]) -> int:
+
+def compute_height(n: int, parents: List[int]) -> int:
     """
-    return
+    Return the height of the tree represented by parents list.
     """
     max_height = 0
-    if _n == 0:
+    if n == 0:
         return max_height
-    heights = [0] * _n
-    for i in range(_n):
+    heights = [0] * n
+    for i in range(n):
         parent = parents[i]
         if parent == -1:
             heights[i] = 1
@@ -24,9 +25,11 @@ def compute_height(_n, parents: List[int]) -> int:
             heights[i] = heights[parent] + 1
         max_height = max(max_height, heights[i])
     return max_height
-def main():
+
+
+def main() -> None:
     """
-    return
+    Read input file, compute the height and print the result.
     """
     file = input("Enter the input filename: ")
     if file.startswith("i"):
@@ -36,19 +39,18 @@ def main():
     else:
         print("Invalid file type")
         return
-    with open(path, "r", encoding="utf-8") as _f:
-        _n = int(_f.readline())
-        parents = list(map(int, _f.readline().split()))
+    with open(path, "r", encoding="utf-8") as f:
+        n = int(f.readline())
+        parents = list(map(int, f.readline().split()))
 
-    with open(path, "r", encoding="utf-8") as _f:
-        _n = int(_f.readline())
-        parents = list(map(int, _f.readline().split()))
-
-    height = compute_height(_n, parents)
+    height = compute_height(n, parents)
     print(height)
-    if __name__ == '__main__':
-        sys.setrecursionlimit(10**7)
-        threading.stack_size(2**27)
-        thread=threading.Thread(target=main)
-        thread.start()
-    main()
+
+
+if __name__ == '__main__':
+    sys.setrecursionlimit(10**7)
+    threading.stack_size(2**27)
+    thread = threading.Thread(target=main)
+    thread.start()
+    thread.join()
+    print()
