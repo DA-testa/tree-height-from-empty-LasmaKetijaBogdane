@@ -54,6 +54,4 @@ def main():
     print(height)
     if __name__ == '__main__':
         main()
-    close()
-    
-
+        
