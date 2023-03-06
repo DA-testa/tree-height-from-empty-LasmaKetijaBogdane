@@ -9,7 +9,6 @@ from typing import List
 
 def compute_height(n: int, parents: List[int]) -> int:
     """
-    Return the height of the tree represented by parents list.
     """
     max_height = 0
     if n == 0:
@@ -29,7 +28,6 @@ def compute_height(n: int, parents: List[int]) -> int:
 
 def main() -> None:
     """
-    Read input file, compute the height and print the result.
     """
     file = input("Enter the input filename: ")
     if file.startswith("i"):
@@ -53,4 +51,4 @@ if __name__ == '__main__':
     thread = threading.Thread(target=main)
     thread.start()
     thread.join()
-    print()
+    main()
