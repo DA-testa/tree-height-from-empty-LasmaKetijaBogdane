@@ -55,3 +55,5 @@ def main():
     if __name__ == '__main__':
         main()
         
+# EOF
+# print(numpy.array([1,2,3]))
