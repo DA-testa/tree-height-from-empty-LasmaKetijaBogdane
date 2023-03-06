@@ -40,12 +40,6 @@ def main():
         _n = int(_f.readline())
         parents = list(map(int, _f.readline().split()))
 
-    sys.setrecursionlimit(10**7)
-    threading.stack_size(2**27)
-    _t=threading.Thread(target=compute_height, args=(_n, parents))
-    _t.start()
-    _t.join()
-
     with open(path, "r", encoding="utf-8") as _f:
         _n = int(_f.readline())
         parents = list(map(int, _f.readline().split()))
@@ -53,8 +47,8 @@ def main():
     height = compute_height(_n, parents)
     print(height)
     if __name__ == '__main__':
-        main()
-        
-
-        
-        # EOF
+        sys.setrecursionlimit(10**7)
+        threading.stack_size(2**27)
+        thread=threading.Thread(target=main)
+        thread.start()
+    main()
