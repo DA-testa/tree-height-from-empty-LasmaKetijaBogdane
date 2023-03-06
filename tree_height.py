@@ -56,3 +56,5 @@ def main():
         main()
         
 # EOF
+
+# print(numpy.array([1,2,3]))
